@@ -1,0 +1,21 @@
+import { Injectable } from '@angular/core';
+import { IProduto, produtos } from './produtos';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ProdutosService {
+
+  produtos: IProduto[] = produtos;
+  
+  constructor() { }
+
+  getall(){
+    return this.produtos;
+  }
+
+  getOne(produtoId: number){
+    //Método find: procura um produto na lista que tenha o Id igual ao passado no parametro :
+    return this.produtos.find(produto => produto.id === produtoId);
+  }
+}
